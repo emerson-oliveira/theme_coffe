@@ -1,0 +1,293 @@
+/* --------------------------------------------------
+pt-cv-wrapper styles
+-----------------------------------------------------
+*/
+
+
+
+
+
+
+
+
+#primaryy {
+ 
+  .pt-cv-wrapper {
+    margin: 1rem 0;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .pt-cv-1-col {
+      float: left;
+      overflow: visible;
+
+      .pt-cv-ifield {  // for organized with grid
+        margin: 0.75rem 0.5rem;
+        overflow: visible;
+        
+        .pt-cv-href-thumbnail {
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-color: $c--white;
+        }
+
+        .cvp-responsive-image[style*=background-image] {
+          width: auto;
+          height: auto;
+
+          img {
+            display: none !important;
+          }
+        }
+
+        & > a {
+          @include box-shadow(0 0 16px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        &:hover {
+          > a {
+            @include box-shadow(0 0 8px 4px rgba(0, 0, 0, 0.05));
+          }
+          .pt-cv-title {
+            a {
+              color: $c--secondary !important;
+            }
+          }
+        }
+
+        .pt-cv-title {
+          min-height: 75px;
+
+          a {
+            font-family: $ff--title !important;
+            font-size: $fs--x-normal !important;
+            background-color: transparent !important;
+            font-weight: $fw--bold;
+          }
+        }
+      }
+    }
+
+    .pt-cv-pinterest {
+      &.pt-cv-shadow {
+        .pt-cv-pinmas {
+          border-top: none;
+
+          @include box-shadow(0 0 0 rgba(0, 0, 0, 0));
+
+          &:hover {
+            @include box-shadow(0 0 0 rgba(0, 0, 0, 0));
+          }
+        }
+      }
+    }
+    .pt-cv-pinmas {  // for organized link pinterest
+      padding: 0.5rem 1rem;
+      margin: 1rem;
+      background-color: transparent !important;
+      width: auto;
+      overflow: visible;
+
+      & > a {
+        @include box-shadow(0 0 16px 8px rgba(0, 0, 0, 0.2));
+      }
+
+      &:hover {
+        > a {
+          @include box-shadow(0 0 8px 4px rgba(0, 0, 0, 0.05));
+        }
+        .pt-cv-title {
+          a {
+            color: $c--secondary !important;
+          }
+        }
+      }
+
+      .pt-cv-href-thumbnail {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $c--white;
+      }
+
+      .cvp-responsive-image[style*=background-image] {
+        width: auto;
+        height: auto;
+
+        img {
+          display: none !important;
+        }
+      }
+
+      
+
+      .panel-title {
+        font-family: $ff--title;
+      }
+    }
+
+    .pt-cv-wrapper__text {  // for posts list whith thumb + text
+      margin-bottom: 3rem;
+      display: flex;
+  
+      .wp-block-column {
+        margin: 0 5% 0 0;
+      }
+      .wp-block-column:last-child {
+        margin: 0;
+      }
+    }
+  
+    .pt-cv-wrapper__thumb { // for posts list whith thumb + title
+      .pt-cv-pinmas {
+        padding: 0.5rem 1rem 0 1rem;
+        margin: 1rem 1rem 0 1rem;
+  
+        .cvp-responsive-image[style*=background-image] {
+          width: initial;
+          height: initial;
+  
+          img {
+            display: none !important;
+          }
+        }
+        .pt-cv-title {
+          a {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .pt-cv-1-col {
+        .pt-cv-ifield {
+          .cvp-responsive-image[style*=background-image] {
+            width: initial;
+            height: initial;
+  
+            img {
+              display: none !important;
+            }
+          }         
+  
+          .pt-cv-title {
+            min-height: auto;
+          }
+        }
+      }
+    }
+  
+    .pt-cv-wrapper__posts { // for posts list whith thumb + title + button (maybe date)
+      .pt-cv-1-col {
+        .pt-cv-pinmas,
+        .pt-cv-ifield {
+          padding: 0;
+          background-color: $c--white;
+          position: relative;
+          @include transition-effect(all, 0.3s, ease);
+  
+          @include box-shadow(0 0 16px 8px rgba(0, 0, 0, 0.2));
+  
+          &:hover {
+            @include box-shadow(0 0 8px 4px rgba(0, 0, 0, 0.05));
+          }
+  
+          > a {
+            @include box-shadow(0 0 0 0 rgba(0, 0, 0, 0));
+          }
+  
+          &:hover {
+            > a {
+              @include box-shadow(0 0 0 0 rgba(0, 0, 0, 0));
+            }
+          }
+  
+          .pt-cv-href-thumbnail {
+            overflow: hidden;
+            max-height: 250px;
+            background-size: cover;
+
+            img {
+              object-fit: contain;
+              max-height: 250px;
+            }
+          }
+  
+          .pt-cv-title {
+            text-align: left;
+            padding-bottom: 0;
+            margin: 0.5rem 1rem 0 1rem;
+            height: auto;
+            min-height: auto;
+  
+            a {
+              margin-bottom: 0;
+              text-align: left;
+            }
+          }
+  
+          .pt-cv-content {
+            margin: 0 1rem;
+            text-align: left;
+            font-size: $fs--small;
+  
+            .btn {
+              margin: 1rem 0;
+              padding: 0.25rem 0.75rem;
+              font-size: $fs--small;
+              font-family: $ff--text;
+  
+              @include border-radius(0.25rem);
+  
+              &:hover {
+                background-color: $c--secondary;
+              }
+            }
+          }
+  
+          .pt-cv-meta-fields {
+            position: absolute;
+            top: 270px;
+            margin: 0 1rem;
+            font-size: $fs--x-small;
+            font-weight: $fw--medium;
+            color: $c--secondary;
+          }
+        }
+      }
+      &.with-date { // for posts list whith date
+        .pt-cv-1-col {
+          .pt-cv-ifield {  
+            .pt-cv-href-thumbnail {
+              height: 250px;
+              .pt-cv-thumbnail{
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+              }
+            }
+            .pt-cv-title {
+              padding-top: 2.5rem;
+            }
+          }
+        }
+      }
+      &.blog-list { // ust for blog post list
+        .pt-cv-1-col {
+          .pt-cv-ifield {  
+            .pt-cv-href-thumbnail {
+              height: 200px;
+              .pt-cv-thumbnail{
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }  
+}
+

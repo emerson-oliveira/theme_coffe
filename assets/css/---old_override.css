@@ -1,0 +1,80 @@
+div.wp-block-latest-posts__featured-image {
+	margin-bottom: 10px;
+    height: 40px;
+}
+
+article ul {
+    list-style: disc;
+}
+
+.wrapper {
+	padding-top: 130px;
+}
+
+p {
+    margin: 20px 0;
+}
+
+.widget strong {
+    color: #FFF;
+    font-weight: bold;
+}
+
+.widget > p.footer-post-text a strong {
+    color: #FFF;
+}
+
+@media screen and (max-width: 1150px) {
+    .wrapper {
+        padding-top: 160px;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .wrapper {
+        padding-top: 120px;
+    }
+}
+
+@media only screen and (max-width:425px){
+    .wrapper {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 991px) {
+    .widget h5 {
+        margin-top: 30px;
+    }
+
+    .wrapper {
+        padding-top: 110px;
+    }
+}
+
+.widget_recent_entries > ul.wp-block-latest-posts > li > a {
+    color: #fff;
+}
+.widget_recent_entries > ul.wp-block-latest-posts > li > a:hover {
+    color: #FFCA00;
+}
+
+.widget-area > .theiaStickySidebar > .widget_recent_entries > ul li > a {
+    color: #326dab;
+}
+.widget-area > .theiaStickySidebar > .widget_recent_entries > ul li > a:hover {
+    color: #FFCA00;
+}
+
+.widget-area > .theiaStickySidebar > .widget .menu > .menu-item > a {
+    color: #326dab;
+}
+.widget-area > .theiaStickySidebar > .widget .menu > .menu-item > a:hover {
+    color: #FFCA00;
+}
+
+#footer{
+	background-color: #000033;
+	padding-top: 30px;
+    margin-top: 50px;
+}
