@@ -7,14 +7,14 @@
   const goToContent = (term) => {
     const content = document.querySelector('.product-content');
     const elements = content.getElementsByTagName('h2');
-    for (let i = 0; i < elements.length; i++) {
-      const text = elements[i].textContent;
+    elements.forEach((element) => {
+      const text = element.textContent;
       if (text.indexOf(term) > -1) {
-        window.scrollTo(0, elements[i].offsetTop - 120); // 120px from header fixed
+        window.scrollTo(0, element.offsetTop - 120); // 120px from header fixed
       }
-    }
+    });
   };
-
+  goToContent();
   /*
     scripts to control the menu
     */
@@ -97,3 +97,5 @@ const subscribeNow = () => {
     subscriberSuccessAlert.style.display = 'none';
   }
 };
+
+subscribeBtn.addEventListener('click', subscribeNow);
