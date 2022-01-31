@@ -65,21 +65,19 @@
   });
 
   const resizeFix = () => {
+    if (this.innerWidth > mediaSize) {
     // if navMenu is open ,close it
-    if (navMenu.classList.contains('open')) {
-      toggleNav();
-    }
-    // if menuItemHasChildren is expanded , collapse it
-    if (navMenu.querySelector('.menu-item-has-children.active')) {
-      collapseSubMenu();
+      if (navMenu.classList.contains('open')) {
+        toggleNav();
+      }
+      // if menuItemHasChildren is expanded , collapse it
+      if (navMenu.querySelector('.menu-item-has-children.active')) {
+        collapseSubMenu();
+      }
     }
   };
 
-  window.addEventListener('resize', function () {
-    if (this.innerWidth > mediaSize) {
-      resizeFix();
-    }
-  });
+  window.addEventListener('resize', resizeFix());
 })();
 
 /* newsletter button click */
