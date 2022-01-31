@@ -44,6 +44,7 @@
     "cross-env": "^5.1",
     "figlet": "^1.2.3",
     "laravel-mix": "^6.0.39",
+    "prettier": "2.5.1",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0"
