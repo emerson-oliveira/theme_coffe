@@ -30,8 +30,8 @@
 
   navMenu.addEventListener('click', (event) => {
     if (
-      event.target.hasAttribute('data-toggle') &&
-      window.innerWidth <= mediaSize
+      event.target.hasAttribute('data-toggle')
+      && window.innerWidth <= mediaSize
     ) {
       // prevent default anchor click behavior
       event.preventDefault();
@@ -74,8 +74,7 @@ const subscriberSuccessAlert = document.getElementById('subscriber-text');
 const subscriberEmailInput = document.getElementById('subscribe-email-input');
 
 const subscribeNow = () => {
-  const checkEmail =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (checkEmail.test(String(subscriberEmailInput.value).toLowerCase())) {
     subscriberSuccessAlert.style.display = 'block';
