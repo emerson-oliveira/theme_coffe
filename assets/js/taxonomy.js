@@ -64,7 +64,6 @@
   }
 
   if (typeof Zoom === 'undefined') window.Zoom = init();
-  else console.log('focus.js has been initialized already.');
 }(window));
 
 Zoom.init({
