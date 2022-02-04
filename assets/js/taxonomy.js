@@ -70,6 +70,7 @@ Zoom.init({
   elementID: '',
   zoomFactor: '200%',
 });
+
 const goToContent = (term) => {
   const content = document.querySelector('.product-content');
   const elements = content.getElementsByTagName('h2');
