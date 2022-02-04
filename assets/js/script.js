@@ -30,8 +30,7 @@
 
   navMenu.addEventListener('click', (event) => {
     if (
-      event.target.hasAttribute('data-toggle')
-      && window.innerWidth <= mediaSize
+      event.target.hasAttribute('data-toggle') && window.innerWidth <= mediaSize
     ) {
       // prevent default anchor click behavior
       event.preventDefault();
