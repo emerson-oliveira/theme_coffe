@@ -1,11 +1,12 @@
 (function (window) {
   function setImage(image) {
-    image.classList.add('product-img-zoom');
-    image.style.backgroundImage = `url(${image.getAttribute('data-image')})`;
-    image.style.backgroundSize = 'contain';
-    image.style.backgroundPosition = 'center';
-    image.style.backgroundRepeat = 'no-repeat';
-    image.style.cursor = 'zoom-in';
+    const productImage = image;
+    productImage.classList.add('product-img-zoom');
+    productImage.style.backgroundImage = `url(${productImage.getAttribute('data-image')})`;
+    productImage.style.backgroundSize = 'contain';
+    productImage.style.backgroundPosition = 'center';
+    productImage.style.backgroundRepeat = 'no-repeat';
+    productImage.style.cursor = 'zoom-in';
   }
 
   if (document.querySelectorAll('.product-img').length > 0) {
