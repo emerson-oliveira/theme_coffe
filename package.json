@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Base theme for ComprarMiCafetera.com",
   "author": "Mauricio Silva",
-  "engines": {
-    "node": "^8.0.0",
-    "npm": "^6.0.0"
-  },
   "scripts": {
     "start": "npm run build:local",
     "build": "webpack --config ./config/webpack/webpack.production.config.js --env.NODE_ENV=production --profile --colors",
@@ -32,9 +28,6 @@
   },
   "dependencies": {
     "cmc-layout": "git+ssh://git@git.mcontigo.com:layouts/cmc-layout#1.1.0",
-    "jq-accordion": "^1.0.3",
-    "jquery": "^1",
-    "jquery-modal": "^0.9.2",
     "prop-types": "^15.6.2"
   },
   "devDependencies": {

@@ -1,23 +1,7 @@
 (() => {
   /*
-  function goToContent
-  search the term on the content, go to then with animation
-    on menu https://www.comprarmicafetera.com/molinillos/cecotec-steelmill-2000-adjust/
+  scripts to control the menu
   */
-  const goToContent = (term) => {
-    const content = document.querySelector('.product-content');
-    const elements = content.getElementsByTagName('h2');
-    elements.forEach((element) => {
-      const text = element.textContent;
-      if (text.indexOf(term) > -1) {
-        window.scrollTo(0, element.offsetTop - 120); // 120px from header fixed
-      }
-    });
-  };
-  goToContent();
-  /*
-    scripts to control the menu
-    */
   const openNavMenu = document.querySelector('.open-nav-menu');
   const closeNavMenu = document.querySelector('.close-nav-menu');
   const navMenu = document.querySelector('.nav-menu');
@@ -31,9 +15,11 @@
   };
 
   const collapseSubMenu = () => {
-    navMenu.querySelector('.menu-item-has-children.active .sub-menu')
+    navMenu
+      .querySelector('.menu-item-has-children.active .sub-menu')
       .removeAttribute('style');
-    navMenu.querySelector('.menu-item-has-children.active')
+    navMenu
+      .querySelector('.menu-item-has-children.active')
       .classList.remove('active');
   };
 
@@ -43,8 +29,10 @@
   menuOverlay.addEventListener('click', toggleNav);
 
   navMenu.addEventListener('click', (event) => {
-    if (event.target.hasAttribute('data-toggle')
-            && window.innerWidth <= mediaSize) {
+    if (
+      event.target.hasAttribute('data-toggle') &&
+      window.innerWidth <= mediaSize
+    ) {
       // prevent default anchor click behavior
       event.preventDefault();
       const menuItemHasChildren = event.target.parentElement;
@@ -66,7 +54,7 @@
 
   const resizeFix = () => {
     if (this.innerWidth > mediaSize) {
-    // if navMenu is open ,close it
+      // if navMenu is open ,close it
       if (navMenu.classList.contains('open')) {
         toggleNav();
       }
@@ -86,7 +74,8 @@ const subscriberSuccessAlert = document.getElementById('subscriber-text');
 const subscriberEmailInput = document.getElementById('subscribe-email-input');
 
 const subscribeNow = () => {
-  const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const checkEmail =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (checkEmail.test(String(subscriberEmailInput.value).toLowerCase())) {
     subscriberSuccessAlert.style.display = 'block';

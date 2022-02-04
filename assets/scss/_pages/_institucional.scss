@@ -1,0 +1,246 @@
+/* --------------------------------------------------
+institucional custom pages linke About Us, Contact
+----------------------------------------------------- */
+
+
+.page_contacto {
+  background: $c--white url('assets/images/bg__ring--top--right.png') center top no-repeat;
+
+  .list__contact {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: $fs--x-normal;
+      color: $c--gray-light;
+      line-height: 1.75rem;
+      padding: 1.75rem 0 1.75rem 6.5rem;
+      position: relative;
+
+      strong {
+        color: $c--text;
+        font-size: $fs--x-medium;
+        font-weight: $fw--bold;
+        display: block;
+        line-height: 1.5rem;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top:1.5rem;
+        left: 0;
+        background-color: $c--gray-lighter;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 80px;
+        width: 80px;
+
+        @include border-radius(50%);
+      }
+
+      &:nth-child(1)::before {
+        background-image: url('assets/images/icon__phone.png');
+      }
+      &:nth-child(2)::before {
+        background-image: url('assets/images/icon__email.png');
+      }
+      &:nth-child(3)::before {
+        background-image: url('assets/images/icon__local.png');
+      }
+    }    
+  }
+  .group__social {
+    padding: 2rem 0;
+
+    p {
+      color: $c--text;
+      font-size: $fs--x-medium;
+      font-weight: $fw--bold;
+      display: inline-block;
+      line-height: 1.5rem;
+    }
+
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+        background-color: $c--secondary;
+        padding: 1rem;
+        margin-right: 0.5rem;
+
+        @include transition-effect(all, 0.3s, ease);
+        @include border-radius(50%);
+
+        a {
+          display: flex;
+          color: transparent;
+          width: 28px;
+          height: 28px;
+          align-items: center;
+          justify-content: center;
+
+          i {            
+            color: $c--primary;
+            font-size: $fs--big;         
+          }
+          span {
+            display: none;
+            text-indent: -5000px;
+            overflow: hidden;
+          }
+        }
+
+        &:hover {
+          @include opacity(0.75);
+        }
+      }
+    }    
+  }
+
+  .group__form {
+    background-color: $c--white;
+    padding: 2rem;
+    border-bottom: 0.25rem solid $c--primary;
+
+    @include box-shadow(0 0 16px 8px rgba(0, 0, 0, 0.05));
+
+    form {
+      padding: 0 2rem;
+
+      p {
+        position: relative;
+        padding: 0;
+
+        label {              
+          span:first-child {
+            font-size: $fs--x-normal;
+            color: $c--gray-light;
+            padding: 0.5rem;
+            display: inline-block;
+            position: absolute;
+            top: 1.5rem;
+            z-index: 2;
+
+            strong {
+              color: $c--secondary;
+            }
+  
+            @include transition-effect(all, 0.3s, ease);
+          }
+  
+          &:focus-within {
+            span:first-child {
+              font-size: $fs--small;
+              top: 0;
+            }
+          }
+
+          input,
+          textarea {
+            border: none;
+            border-bottom: 1px solid $c--gray;
+            width: 100%;
+            font-size: $fs--x-normal;
+            color: $c--gray;
+            padding: 0.5rem;
+            outline: none;
+            z-index: 1;
+            background-color: $c--white;            
+          }
+          input::placeholder,
+          textarea::placeholder {
+            color: $c--white;
+          }
+          input:not(:placeholder-shown),
+          textarea:not(:placeholder-shown) {
+            z-index: 3;
+            position: relative;
+          }
+          textarea {
+            height: 8rem;
+          }
+        }
+
+        .wpcf7-submit {
+          color: $c--text;
+          font-size: $fs--medium;
+          font-weight: $fw--bold;
+          text-transform: uppercase;
+          background-color: $c--secondary;
+          padding: 1rem 2rem;
+          border: none;
+          display: table;
+          margin: 2rem auto 0 auto;
+          width: 11rem;
+          cursor: pointer;
+  
+          @include transition-effect(all, 0.3s, ease);
+          @include border-radius(2rem);
+  
+          &:hover {
+            @include opacity(0.75);
+          }
+        }
+      }     
+    }
+  }
+
+
+  /*
+	-- media queries
+	*/
+	@media screen and (max-width: 768px) {
+    .list__contact {
+  
+      li {
+        font-size: $fs--x-normal;
+        padding: 1.0rem 0 1.0rem 4.5rem;
+  
+        strong {
+          font-size: $fs--medium;
+        }
+  
+        &::before {
+          top:1.5rem;
+          height: 64px;
+          width: 64px;
+          background-size: 72%;
+        }
+  
+      }    
+    }
+
+    .group__social {
+      padding: 2rem 0;
+  
+      ul {
+        li {
+          padding: 0.75rem;
+  
+          a {
+            width: 22px;
+            height: 22px;
+
+            i {   
+              font-size: $fs--x-medium;         
+            }
+          }  
+        }
+      }    
+    }
+
+		.group__form {
+      padding: 0.5rem;
+
+      h2 {
+        padding: 0;
+      }
+
+      form {
+        padding: 0 1rem;
+      }
+    }
+  }
+}
