@@ -1,62 +1,61 @@
 (function (window) {
-  if (document.querySelectorAll('.product-img').length > 0) {
-    set_image(document.querySelectorAll('.product-img')[0]);
-  }
-
-  const ZOOMFACTOR = '250%';
-
-  function set_image(image) {
+  function setImage(image) {
     image.classList.add('product-img-zoom');
-    image.style.backgroundImage =
-      'url(' + image.getAttribute('data-image') + ')';
+    image.style.backgroundImage = `url(${image.getAttribute('data-image')})`;
     image.style.backgroundSize = 'contain';
     image.style.backgroundPosition = 'center';
     image.style.backgroundRepeat = 'no-repeat';
     image.style.cursor = 'zoom-in';
   }
 
+  if (document.querySelectorAll('.product-img').length > 0) {
+    setImage(document.querySelectorAll('.product-img')[0]);
+  }
+
+  let ZOOMFACTOR = '250%';
+
   function init() {
-    let Zoom = {};
+    const Zoom = {};
 
     Zoom.init = function (config) {
-      elID = config.elementID;
+      const elID = config.elementID;
       ZOOMFACTOR = config.zoomFactor || '250%';
 
-      let container = elID !== '' ? document.getElementById(elID) : document;
-      let focusImgs = container.querySelectorAll('.product-img-zoom');
+      const container = elID !== '' ? document.getElementById(elID) : document;
+      const focusImgs = container.querySelectorAll('.product-img-zoom');
 
-      Array.from(focusImgs).forEach(function (img) {
+      Array.from(focusImgs).forEach((img) => {
         img.addEventListener(
           'mouseenter',
-          function (e) {
+          function () {
             this.style.backgroundSize = ZOOMFACTOR; // Not even a lexical 'this' :(
           },
-          false
+          false,
         );
 
         img.addEventListener(
           'mousemove',
           function (e) {
-            let imgDimensions = this.getBoundingClientRect();
+            const imgDimensions = this.getBoundingClientRect();
 
-            let x = e.clientX - imgDimensions.left;
-            let y = e.clientY - imgDimensions.top;
+            const x = e.clientX - imgDimensions.left;
+            const y = e.clientY - imgDimensions.top;
 
-            let percentX = Math.round(100 / (imgDimensions.width / x));
-            let percentY = Math.round(100 / (imgDimensions.height / y));
+            const percentX = Math.round(100 / (imgDimensions.width / x));
+            const percentY = Math.round(100 / (imgDimensions.height / y));
 
-            this.style.backgroundPosition = percentX + '% ' + percentY + '%';
+            this.style.backgroundPosition = `${percentX}% ${percentY}%`;
           },
-          false
+          false,
         );
 
         img.addEventListener(
           'mouseleave',
-          function (e) {
+          function () {
             this.style.backgroundPosition = 'center';
             this.style.backgroundSize = 'contain';
           },
-          false
+          false,
         );
       });
     };
@@ -65,11 +64,11 @@
 
   if (typeof Zoom === 'undefined') window.Zoom = init();
   else console.log('focus.js has been initialized already.');
-})(window);
+}(window));
 
 Zoom.init({
   elementID: '',
-  zoomFactor: '200%'
+  zoomFactor: '200%',
 });
 const goToContent = (term) => {
   const content = document.querySelector('.product-content');
