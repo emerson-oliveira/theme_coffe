@@ -2,7 +2,7 @@
 
 <main role="main">
 	<div class="wrapper container">
-		<div id="primary" class="primary file-single">
+		<div id="primary" class="primary<?php if ( wp_is_mobile() ) { echo ' without-sidebar '; } else { echo ' '; } ?>file-single">
 
 			<?php while(have_posts()): the_post(); ?>
 				<?php $options = get_option('cmc_options'); ?>
@@ -12,7 +12,9 @@
 			<?php endwhile; ?>
 
 		</div>
-		<?php get_sidebar(); ?>
+		<?php
+      get_sidebar();
+    ?>
 	</div>	
 </main>
 

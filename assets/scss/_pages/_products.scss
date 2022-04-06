@@ -3,7 +3,7 @@ page - products
 ----------------------------------------------------- */
 .button-2 {
 	display: table;
-	font-size: $fs--normal;
+	font-size: $fs--medium;  // was $fs--normal;
 	text-align: center;
 	padding: 1rem;
 	border-radius: 4px;
@@ -57,8 +57,9 @@ page - products
 					}
 			
 					h2 {
-						font-size: $fs--normal;
-						line-height: $fs--normal;
+						font-size: $fs--medium;  // was $fs--normal;
+						line-height: $fs--medium;  // was $fs--normal;
+            padding: 0;
 						margin-bottom: 2px;
 						margin-top: 0;
 						padding-top: 0;
@@ -109,7 +110,7 @@ page - products
 						width: 84%;
 						position: fixed;
 						bottom: 0px;
-						font-size: $fs--normal;
+						font-size: $fs--medium;  // was $fs--normal;
 						padding: 10px;
 					}
 			
@@ -167,6 +168,7 @@ page - products
 
 				.product-header_content {
 					flex: auto;
+          margin-top: 15px;
 
 					h1 {
 						font-size: 1.9rem;
@@ -193,7 +195,7 @@ page - products
 							font-weight: bold;
 							width: 130px;
 							display: inline-block;
-							font-size: $fs--normal;
+							font-size: $fs--medium;  // was $fs--normal;
 						}
 					}
 
@@ -202,7 +204,7 @@ page - products
 						padding: 10px;
 						display: block;
 						margin-bottom: 10px;
-						font-size:$fs--normal;
+						font-size:$fs--medium;  // was $fs--normal;
 						font-family: $ff--text;
 						line-height:$fs--x-normal;
 						font-weight: $fw--bold;
@@ -322,7 +324,7 @@ page - products
 			background:linear-gradient(to bottom,#f7dfa5,#f0c14b) repeat scroll 0 0 rgba(0,0,0,0)!important;
 			border: 1px solid $c--text;
 			color: $c--primary;
-			font-size: $fs--normal;
+			font-size: $fs--medium;  // was $fs--normal;
 
 			@include border-radius(0.25rem);
 		}
@@ -374,7 +376,6 @@ page - products
 	
 					.product-header_content {
 						width: 100%;
-						margin-top: 35px;
 					}
 					.product-img {
 						width: 100%;
@@ -387,15 +388,54 @@ page - products
 }
 
 @media screen and (max-width: 768px) {
+  .button-2 {
+    font-size: $fs--normal;  // was media;    
+  }
+
 	#primary {
 		.group-product-grid {
 			.product-grid-1 {
 				margin: 0;
+
+        .product-menu {        
+          .product-menu-data {        
+            h2 {
+              font-size: $fs--normal;  // was media;
+              line-height: $fs--normal;  // was media;
+            }
+          }
+          .product-button {
+        
+            &.mobile {
+              font-size: $fs--normal;  // was media;
+            }
+        
+          }
+        }
 			}
 			.product-grid-2 {
 				width: 100%;
 				flex: none;
 				margin: 0;
+
+        .product-header {
+          .product-header_content {  
+            .icon-amazon {
+              display: block;
+              text-align: center;
+            }
+  
+            .product-data {              
+              label {
+                font-size: $fs--normal;  // was media;
+              }
+            }
+  
+            .product-button-2 {
+              font-size:$fs--normal;  // was media;
+            }
+          }  
+        }
 
 				.comment-respond{
 					&::before {
@@ -417,9 +457,18 @@ page - products
 	.product-img.mobile {
 		display: block;
 	}
+
+  .read-more {
+    &.price{
+      span {
+        font-size: $fs--normal;  // was media;
+      }
+    }
+  }
 }
 
-@media only screen and (max-width:1068px) {
+
+@media only screen and (max-width:991px) {
 	#primary {
 		.group-product-grid {
 	
@@ -428,15 +477,15 @@ page - products
 			}
 	
 			.product-grid-2 {
-				margin: 0 2% 0 0;
-
-				.comment-respond {
-						margin: 50px 0 25px 0;					
-				}
+				margin: 0 0.1px 0 0;
 			}
 	
 			.product-grid-3 {
 				width:100%;
+         
+        #secondary {
+          padding-top: 5rem;
+        }        
 			}
 		}
 	}

@@ -1,35 +1,47 @@
 <?php
-include_once(get_template_directory().'/includes/old-template.php');
 
-/* Add David, para quitar alternates /feed en el head */
-function disable_all_feeds() {
-	wp_die( __('Lo siento, nuestro contenido no está disponible mediante RSS. Por favor, visita <a href="'. get_bloginfo('url') .'">la web</a> para leerla') );
+/*
+|--------------------------------------------------------------------------
+| Load dependencies
+|--------------------------------------------------------------------------
+*/
+load_dependencies("includes", [
+  "helpers",
+  "shortcodes",
+  "post_type",
+  "wp_ajax",
+]);
+load_dependencies("includes/cmc", [
+  "cmc_load_assets",
+  "cmc_options",
+  "cmc_products",
+  "cmc_gallery",
+  "cmc_widgets",
+]);
+load_dependencies("includes/metabox", [
+  'meta-boxes-brands',
+  'meta-boxes-main_product',
+]);
+
+function load_dependencies($path, $array)
+{
+  foreach ($array as  $dependency) {
+    require_once get_template_directory() . "/$path/$dependency.php";
+  }
 }
 
-add_action('do_feed', 'wpb_disable_feed', 1);
-add_action('do_feed_rdf', 'wpb_disable_feed', 1);
-add_action('do_feed_rss', 'wpb_disable_feed', 1);
-add_action('do_feed_rss2', 'wpb_disable_feed', 1);
-add_action('do_feed_atom', 'wpb_disable_feed', 1);
-add_action('do_feed_rss2_comments', 'wpb_disable_feed', 1);
-add_action('do_feed_atom_comments', 'wpb_disable_feed', 1);
-remove_action( 'wp_head', 'feed_links_extra', 3 );
-remove_action( 'wp_head', 'feed_links', 2 );
-/* Fin Add David, para quitar alternates /feed en el head */
-
-/** CORE */
-include_once('includes/functions/core.php');
-include_once('includes/functions/settings.php');
-
-/** WIDGETS */
-include_once('includes/functions/widgets.php');
-
-/** HOOKS */
-include_once('includes/hooks/taxonomy.php');
-include_once('includes/hooks/metabox.php');
-include_once('includes/hooks/amazon.php');
-include_once('includes/hooks/product.php');
-
-
-include_once(get_template_directory().'/includes/meta-boxes-brands.php');
-include_once(get_template_directory().'/includes/meta-boxes-main_product.php');
+/*
+|--------------------------------------------------------------------------
+| Amazon - Data Account
+|--------------------------------------------------------------------------
+*/
+$API_options = get_option('cmc_options');
+$accessKeyId = $API_options['theme_api_accessKeyId']['value'];
+$secretKey = $API_options['theme_api_secretKey']['value'];
+$trackingId = $API_options['theme_api_trackingId']['value'];
+$region = "es";
+$savetext = "Comprando este producto hoy, te ahorras…";
+$CTAtext = "Comprar en Amazon AHORA - ";
+$pricetext = "Precio Actual:";
+$searchonAmazontext = "Consulta la mejor oferta en Amazon";
+$logourl = "https://images-na.ssl-images-amazon.com/assets/images/G/30/associates/mariti/banner/uk_associates_14-07-2015_amazon-logo_de-assoc_3_234x60.jpg";

@@ -7,7 +7,7 @@ const mix = require('laravel-mix');
  |
  | Mix provides a clean, fluent API for defining some Webpack build steps
  | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files. 
+ | file for the application as well as bundling up all the JS files.
  | Full API
  | mix.js(src, output);
  | mix.react(src, output); <-- Identical to mix.js(), but registers React Babel compilation.
@@ -51,35 +51,34 @@ mix.browserSync({
     proxy: 'localhost:5001'
 });
 */
-mix.autoload({ 'jquery': ['window.$', 'window.jQuery'] })
+mix.autoload({ jquery: ['window.$', 'window.jQuery'] });
 mix.options({
-    publicPath: './',
-    uglify: {
-        compress: {
-            warnings: false
-        },
-        comment: false
+  publicPath: './',
+  uglify: {
+    compress: {
+      warnings: false,
     },
-    clearConsole:true,
-    processCssUrls: false
+    comment: false,
+  },
+  clearConsole: true,
+  processCssUrls: false,
 });
 
-mix.js('assets/js/taxonomy.js','assets/js/taxonomy.min.js')
-    .js('assets/js/global.js','assets/js/global.min.js')
-    .js('assets/js/script.js','assets/js/script.min.js');
+mix.js('assets/js/taxonomy.js', 'assets/js/taxonomy.min.js')
+  .js('assets/js/script.js', 'assets/js/script.min.js');
 
-mix.css('assets/css/admin.css','assets/css/admin.min.css')
-    .sourceMaps();
-    
+mix.css('assets/css/admin.css', 'assets/css/admin.min.css')
+  .sourceMaps();
+
 mix.css('assets/bootstrap/bootstrap-light.css', 'assets/bootstrap/bootstrap-light.min.css');
 
-mix.sass('assets/scss/style.scss','/style.css')
-    .sourceMaps();
+mix.sass('assets/scss/style.scss', '/style.css')
+  .sourceMaps();
 
 mix.version();
 
 /*
-Theme Name: CMC - v2022-01-14
+Theme Name: CMC - v2022-03-07
 Theme URI: http://www.comprarmicafetera.com
 Author: MContigo
 */

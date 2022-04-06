@@ -20,7 +20,7 @@ wp custom styles
   display: table;
   margin: 0 auto;
   color: $c--primary;
-  font-size: $fs--normal;
+  font-size: $fs--medium;  // was $fs--normal;
   font-weight: $fw--medium;
   border:1px solid  $c--secondary;
 
@@ -77,5 +77,9 @@ wp custom styles
       flex-basis: 100% !important;
       margin: 0;
     }
+  }
+
+  .wp-block-button__link {
+    font-size: $fs--normal;  // was media;
   }
 }

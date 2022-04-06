@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Base theme for ComprarMiCafetera.com",
   "author": "Mauricio Silva",
-  "engines": {
-    "node": "^8.0.0",
-    "npm": "^6.0.0"
-  },
   "scripts": {
     "start": "npm run build:local",
     "build": "webpack --config ./config/webpack/webpack.production.config.js --env.NODE_ENV=production --profile --colors",
@@ -20,8 +16,8 @@
     "extract:po:wp": "cross-env react-intl-po po2json 'lang/*.po' -m 'modules/cmc-theme/src/i18n/json/messages.json' -o 'modules/cmc-theme/src/i18n/json/wordpress/translations.json'",
     "extract:merge": "./config/scripts/merge-pot2po.sh",
     "extract:po2mo": "./config/scripts/po2mo.sh",
-    "lint": "eslint ./modules/cmc-theme/src --ext .js",
-    "lint:fix": "eslint ./modules/cmc-theme/src --ext .js --fix",
+    "lint": "eslint ./assets --ext .js",
+    "lint:fix": "eslint ./assets --ext .js --fix",
     "dev": "npm run development",
     "prod": "npm run production",
     "development": "mix",
@@ -32,9 +28,6 @@
   },
   "dependencies": {
     "cmc-layout": "git+ssh://git@git.mcontigo.com:layouts/cmc-layout#1.1.0",
-    "jq-accordion": "^1.0.3",
-    "jquery": "^1",
-    "jquery-modal": "^0.9.2",
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
@@ -42,6 +35,9 @@
     "babel-loader": "^8.2.2",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "figlet": "^1.2.3",
     "laravel-mix": "^6.0.39",
     "prettier": "2.5.1",
