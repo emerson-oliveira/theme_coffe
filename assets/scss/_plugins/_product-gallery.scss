@@ -50,7 +50,7 @@ product-gallery styles
 		}
 	}
 	.gallery-excerpt {
-		font-size: $fs--normal;
+		font-size: $fs--medium;  // was $fs--normal;
 	}
 	
 	/*
@@ -58,6 +58,10 @@ product-gallery styles
 	*/
 	@media only screen and (max-width:768px) { 
 		width: 48%;
+
+    .gallery-excerpt {
+      font-size: $fs--normal;  // was media;
+    }
 	}
 	@media only screen and (max-width:425px) {
 		width: 100%;

@@ -3,22 +3,34 @@
 
 <main role="main">
 	<div class="wrapper container">
-		<div id="primary" class="primary file-search">
+		<div id="primary" class="primary<?php if ( wp_is_mobile() ) { echo ' without-sidebar '; } else { echo ' '; } ?>file-search">
+        <?php
+        	$paged = (get_query_var('paged'))?get_query_var('paged'):1; 
+          $args = array(
+            'post_type' => array('post', 'page', 'main_product', 'related_product_1', 'related_product_2', 'brands'),
+            'paged' => $paged,
+            's' => $_GET['s']
+          );
+          $query = new WP_Query($args);
+          
+          $term = '';
+          if (!$query->have_posts()) {
+            $term = 'No hay resultados';
+          } else {
+            $term = 'Resultado';
+          }
+          echo '<div class="search-content"> <h3>'. $term .' de búsqueda para <strong>' . $_GET['s'] . '</strong></h3></div>';
+          
+        ?>
 				<div class="list-products">
-					<?php $paged = (get_query_var('paged'))?get_query_var('paged'):1; ?>
-					<?php
-						$args = array(
-							'post_type' => array('post', 'page', 'main_product', 'related_product_1', 'related_product_2', 'brands'),
-							'paged' => $paged,
-							's' => $_GET['s']
-						);
-						$query = new WP_Query($args);
-					?>
-					<?php
-						if(!$query->have_posts()){
-							echo '<div class="search-content">' . do_shortcode($options['theme_search_text']['value']) . '</div>';
-						}
-					?>
+          <?php
+            if (!$query->have_posts()) {
+              echo "<h5>No hemos encontrado lo que buscas, pero aquí te dejamos el ranking de las cafeteras más vendidas en España durante el día de ayer:</h5>";
+              echo do_shortcode('[aawp bestseller="cafeteras express" items=9 grid=3]');
+            }
+          
+          ?>
+					
 					<?php while($query->have_posts()): $query->the_post(); ?>
 						<?php if(get_post_type() == 'main_product' || get_post_type() == 'related_product_1' || get_post_type() == 'related_product_2') { ?>
 							<?php $data = cmc_get_prodcut_data(get_the_ID(), get_post_type()); ?>
@@ -57,7 +69,7 @@
 								<header class="entry-header-2">
 									<?php
 										if(has_post_thumbnail()) { ?>
-											<a class="post-thumbnail-2" href="<?php esc_url(the_permalink()); ?>"><?php the_post_thumbnail('post-thumbnail'); ?></a>
+											<a class="post-thumbnail-2" href="<?php esc_url(the_permalink()); ?>"><?php the_post_thumbnail('image-medium'); ?></a>
 										<?php }
 										else { ?>
 											<a class="post-thumbnail-2" href="<?php esc_url(the_permalink()); ?>"><!-- Default post thumbnail --></a>
@@ -86,7 +98,9 @@
 				<?php wp_reset_postdata(); ?>
 			
 		</div>
-		<?php get_sidebar(); ?>
+		<?php
+      get_sidebar();
+    ?>
 	</div>
 </main>
 

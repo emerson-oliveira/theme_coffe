@@ -22,7 +22,7 @@ p {
 
 main {
   p {
-    font-size: $fs--normal;
+    font-size: $fs--medium;  // was $fs--normal;
     color: $c--text;
     padding: 0.40rem 0;
     line-height: 1.875rem;
@@ -195,6 +195,8 @@ main {
 
   main {
     p {
+      font-size: $fs--normal;  // was media;
+
       &.text-intro {
         font-size: $fs--x-normal;
       }

@@ -78,7 +78,7 @@ mix.sass('assets/scss/style.scss', '/style.css')
 mix.version();
 
 /*
-Theme Name: CMC - v2022-01-14
+Theme Name: CMC - v2022-03-07
 Theme URI: http://www.comprarmicafetera.com
 Author: MContigo
 */

@@ -13,7 +13,7 @@ schema-how-to-steps styles
 
   li.schema-how-to-step {
     font-family: $ff--title;
-    font-size: $fs--x-normal;
+    font-size: $fs--medium; // was  $fs--x-normal
     line-height: 2.5rem;
     margin-bottom: 2rem;
     flex: 0 0 30%;
@@ -27,7 +27,7 @@ schema-how-to-steps styles
 
     p {
       strong {
-        font-size: $fs--x-normal;
+        font-size: $fs--medium; // was  $fs--x-normal
       }
     }
 
@@ -83,6 +83,18 @@ schema-how-to-steps styles
           }
         }
       }      
+    }
+  }
+
+  .schema-how-to-steps {  
+    li.schema-how-to-step {
+      font-size: $fs--x-normal; // was  media
+  
+      p {
+        strong {
+          font-size: $fs--x-normal; // was  media
+        }
+      }
     }
   }
 }

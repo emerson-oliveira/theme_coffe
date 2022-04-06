@@ -41,6 +41,5 @@
 
 		<?php echo get_rich_snippets(); ?>
 		<?php wp_footer(); ?>
-		<?php echo cmc_the_styles(); ?>
 	</body>
 </html>

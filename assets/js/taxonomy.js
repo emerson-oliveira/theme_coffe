@@ -71,14 +71,20 @@ Zoom.init({
   zoomFactor: '200%',
 });
 
-const goToContent = (term) => {
+
+/* 
+	function goToContent - for product menu navigation
+	search the term on the content, go to then with animation
+    on menu https://www.comprarmicafetera.com/molinillos/cecotec-steelmill-2000-adjust/
+	*/
+window.goToContent = function (term) {
   const content = document.querySelector('.product-content');
   const elements = content.getElementsByTagName('h2');
-  elements.forEach((element) => {
+  Array.from(elements).forEach((element) => {
     const text = element.textContent;
     if (text.indexOf(term) > -1) {
       window.scrollTo(0, element.offsetTop - 120); // 120px from header fixed
     }
   });
 };
-goToContent();
+// goToContent();

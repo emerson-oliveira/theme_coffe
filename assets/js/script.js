@@ -1,4 +1,4 @@
-(() => {
+(() => { 
   /*
   scripts to control the menu
   */
@@ -83,4 +83,4 @@ const subscribeNow = () => {
   }
 };
 
-subscribeBtn.addEventListener('click', subscribeNow);
+// subscribeBtn.addEventListener('click', subscribeNow);
